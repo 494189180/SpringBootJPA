@@ -3,8 +3,8 @@ buildscript {
         springBootVersion = '2.1.0.RELEASE'
     }
     repositories {
-        //maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        mavenCentral()
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        //mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -25,8 +25,12 @@ repositories {
 }
 //Gradle3.4新增了Java-library插件，java-library插件使用了新的依赖配置implementation和api。旧的依赖配置compile被废弃
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
-    implementation('mysql:mysql-connector-java')
-    compileOnly('org.projectlombok:lombok')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'mysql:mysql-connector-java'
+    compileOnly 'org.projectlombok:lombok'
+    implementation 'org.apache.commons:commons-pool2:2.4.2'
+    implementation 'com.alibaba:fastjson:1.2.51'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
